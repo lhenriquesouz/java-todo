@@ -53,18 +53,21 @@ public class FormActivity extends AppCompatActivity {
             case R.id.save_task: {
                 TextInputEditText descriptionTIET = findViewById(R.id.task_description);
                 String description = descriptionTIET.getText().toString();
-                description = description != null ? "" : description ;
+                description = description != null ? description : "" ;
 
                 if (description.equals("")){
                      Toast.makeText(this, R.string.task_description_empty, Toast.LENGTH_SHORT).show();
                 } else {
                     if (task == null){
                         Task task = new Task(0, description);
+
                         TaskDAO dao = new TaskDAO(this);
                         dao.save(task);
 
                         Toast.makeText(getBaseContext(), R.string.task_saved, Toast.LENGTH_SHORT).show();
                     } else {
+                        task.setDescription(description);
+
                         TaskDAO dao = new TaskDAO(this);
                         dao.update(task);
 

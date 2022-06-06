@@ -10,4 +10,5 @@
     <string name="fab_description">Adiconar Tarefa</string>
     <string name="task_done">Tarefa concluída</string>
     <string name="task_edit">Tarefa atualizada</string>
+    <string name="delete_task">Concluir Tarefa</string>
 </resources>
